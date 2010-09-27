@@ -31,10 +31,11 @@ gem 'mysql2'
 gem "responders"
 gem "factory_girl", :group => :test
 gem "factory_girl_rails", :group => :test
-gem "rails3-generators"
 gem "ZenTest", :group => :test
 gem "autotest-rails", :group => :test
+gem "rails3-generators"
 gem "devise", "1.1.2"
 gem "will_paginate", :git => "git://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "cancan"
 gem "simple_form"
+gem 'acts-as-taggable-on'
