@@ -3,4 +3,5 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :creator, :name
   acts_as_taggable
+
 end

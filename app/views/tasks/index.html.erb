@@ -1,4 +1,9 @@
-<ol>
+<%= simple_form_for :task, :remote=>true, :html=>{:id=>"new_task"} do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit, :class=>"awesome" %>
+<% end %>
+
+<ol id="tasks">
   <% @tasks.each do |task| %>
     <li><%= task.name %></li>
   <% end %>

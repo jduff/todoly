@@ -6,5 +6,7 @@ class Ability
 
     # can :manage, Something, :user_id => user.id
     can :read, :all
+    can :manage, Task, :creator_id => user.id
+    can :create, Task
   end
 end
