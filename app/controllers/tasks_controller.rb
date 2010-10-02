@@ -10,9 +10,7 @@ class TasksController < ApplicationController
     @task.creator = current_user
     @task.save
 
-    respond_with @task do |format|
-      format.js { render }
-    end
+    respond_with @task
   end
 
   def destroy

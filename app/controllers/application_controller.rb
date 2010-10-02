@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |ex|
-    puts ex.inspect
+    logger.error ex
     flash[:alert] = ex.message
     redirect_to tasks_path
   end

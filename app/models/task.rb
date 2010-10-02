@@ -6,6 +6,8 @@ class Task < ActiveRecord::Base
   validates_inclusion_of :status, :in => STATUS, :allow_nil=>true
   acts_as_taggable
 
+  attr_accessible :status, :name
+
   scope :status, Proc.new { |s| where(:status=>s) }
   scope :current, Proc.new {
     where(Task[:status].not_eq('complete').or(Task[:status].eq(nil)))
