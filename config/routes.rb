@@ -1,7 +1,11 @@
 Threelists::Application.routes.draw do
   devise_for :users
 
-  resources :tasks
+  resources :tasks do
+    member do
+      put :complete
+    end
+  end
 
   root :to => "home#index"
 

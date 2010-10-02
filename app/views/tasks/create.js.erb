@@ -1,5 +1,5 @@
 // add the new task to the list
-$('#tasks').append("<li><%= @task.name %></li>");
+$('#tasks').append("<%=js render(@task) %>");
 // reset the task form
 $('#new_task')[0].reset();
 

@@ -1,0 +1,4 @@
+// remove the task from the todo list
+$('#task_'+<%=@task.id%>).remove();
+// ass the task to the completed list
+$('#completed_tasks').prepend("<%=js render(@task) %>");

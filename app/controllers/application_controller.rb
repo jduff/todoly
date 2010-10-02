@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   self.responder = ApplicationResponder
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
 
   before_filter :authenticate_user!
 

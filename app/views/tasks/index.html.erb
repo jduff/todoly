@@ -4,7 +4,9 @@
 <% end %>
 
 <ol id="tasks">
-  <% @tasks.each do |task| %>
-    <li><%= task.name %></li>
-  <% end %>
+  <%= render @tasks %>
 </ol>
+
+<ul id="completed_tasks">
+  <%= render @completed_tasks %>
+</ul>
