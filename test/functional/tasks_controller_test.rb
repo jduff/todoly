@@ -17,11 +17,12 @@ class TasksControllerTest < ActionController::TestCase
 
   test "should be able to create a task" do
     assert_difference "Task.count" do
-      post :create, :format=>:js, :task=>{:name=>"New Task"}
+      post :create, :format=>:js, :task=>{:name=>"New Awesome Task"}
 
       assert_response :success
 
-      assert_match /New Task/, response.body
+      assert_match "$('#tasks').append", response.body
+      assert_match "New Awesome Task", response.body
       assert_equal @user, assigns(:task).creator
     end
   end
@@ -41,6 +42,30 @@ class TasksControllerTest < ActionController::TestCase
     task = Factory(:task)
     assert_no_difference "Task.count" do
       delete :destroy, :format=>:js, :id=>task.id
+
+      assert_redirected_to tasks_url
+      assert_equal "You are not authorized to access this page.", flash[:alert]
+    end
+  end
+
+  test "should be able to complete a task" do
+    task = Factory(:task, :creator=>@user, :name=>"Awesome Task")
+    assert_no_difference "Task.count" do
+      put :complete, :format=>:js, :id=>task.id
+
+      assert_response :success
+
+      assert_match "$('#task_'+#{task.id}).remove()", response.body
+      assert_match "$('#completed_tasks').prepend", response.body
+      assert_match "Awesome Task", response.body
+      assert_match %q(class=\\"task complete\\"), response.body
+    end
+  end
+
+  test "should not be able to complete another users task" do
+    task = Factory(:task)
+    assert_no_difference "Task.count" do
+      put :complete, :format=>:js, :id=>task.id
 
       assert_redirected_to tasks_url
       assert_equal "You are not authorized to access this page.", flash[:alert]
