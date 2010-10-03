@@ -1,6 +1,6 @@
 <%= simple_form_for edit_form, :remote=>true, :html=>{:style=>"display:none;"} do |f| %>
   <%= f.input :name, :label=>false, :input_html=>{:autocomplete=>:off} %>
-  <%= f.input :tags %>
+  <%= f.input :tag_list, :label=>"Tags" %>
   <%= f.button :submit, :class=>"awesome" %>
   <%= link_to "cancel", "#", :remote=>true, :class=>"cancel_edit_link" %>
 <% end %>

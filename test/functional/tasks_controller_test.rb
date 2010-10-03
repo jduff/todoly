@@ -81,13 +81,17 @@ class TasksControllerTest < ActionController::TestCase
 
   test "should be able to update a task" do
     task = Factory(:task, :creator=>@user, :name=>"Awesome Task")
+    assert task.tags.empty?
     assert_no_difference "Task.count" do
-      put :update, :format=>:js, :id=>task.id, :task=>{:name=>"More Awesomeness"}
+      put :update, :format=>:js, :id=>task.id, :task=>{:name=>"More Awesomeness", :tag_list=>"awesome, sauce"}
 
       assert_response :success
 
       task.reload
       assert_equal "More Awesomeness", task.name
+      assert_equal 2, task.tags.length
+      assert task.tags.collect(&:name).include?("awesome")
+      assert task.tags.collect(&:name).include?("sauce")
 
       assert_match "$('#task_'+#{task.id}).replace", response.body
       assert_match "More Awesomeness", response.body
