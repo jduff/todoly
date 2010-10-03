@@ -1,3 +1,9 @@
+$('.inline').inlineLabel();
+
+
+/*
+ * Editing Tasks
+ */
 $('#tasks').delegate('.edit_task_link', 'click', function(){
   // show any tasks that might be hidden
   $('li.task').children().show();
