@@ -1,6 +1,6 @@
 <%= simple_form_for :task, :remote=>true, :html=>{:id=>"new_task"} do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit, :class=>"awesome" %>
+  <%= f.input :name, :label=>false, :input_html=>{:autocomplete=>:off} %>
+  <%= f.button :submit, :value=>"Add Task", :class=>"awesome" %>
 <% end %>
 
 <ol id="tasks">
