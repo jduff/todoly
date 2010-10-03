@@ -1,8 +1,8 @@
 <h2>Sign in</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= f.input :email, :required => false, :label=>"Login or Email" %>
-  <%= f.input :password %>
+  <%= f.input :email, :as=>:string, :required => false, :label=>"Login or Email" %>
+  <%= f.input :password, :required=>:false %>
 
   <% if devise_mapping.rememberable? -%>
     <%= f.check_box :remember_me %>
