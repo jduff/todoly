@@ -26,7 +26,8 @@ class TasksController < ApplicationController
   end
 
   def complete
-    @task.update_attributes(:status=>"complete")
+    @task.status = "complete"
+    @task.save
 
     respond_with @task
   end

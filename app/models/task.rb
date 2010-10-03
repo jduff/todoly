@@ -6,7 +6,7 @@ class Task < ActiveRecord::Base
   validates_inclusion_of :status, :in => STATUS, :allow_nil=>true
   acts_as_taggable
 
-  attr_accessible :status, :name
+  attr_accessible :name, :tag_list
 
   scope :status, Proc.new { |s| where(:status=>s) }
   scope :current, Proc.new {
