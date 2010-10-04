@@ -4,6 +4,7 @@ Threelists::Application.routes.draw do
   resources :tasks do
     member do
       put :complete
+      put :uncomplete
     end
   end
 

@@ -31,4 +31,11 @@ class TasksController < ApplicationController
 
     respond_with @task
   end
+
+  def uncomplete
+    @task.status = nil
+    @task.save
+
+    respond_with @task
+  end
 end

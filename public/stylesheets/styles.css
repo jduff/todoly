@@ -1,0 +1,53 @@
+body {
+  font-size: 110%;
+}
+
+#container-outer {
+  margin: 0px auto;
+  width: 1000px;
+}
+
+#container {
+  margin: 0px 40px;
+  width: 920px;
+}
+
+#sidebar {
+  width: 351px;
+  float:left;
+}
+
+#main {
+  width:569px;
+  float:right;
+}
+
+header h1 {
+  clear:both;
+  height:60px;
+}
+
+#user-links {
+  margin:0px;
+  float:right;
+}
+#user-links li {
+  list-style:none;
+  display:inline;
+}
+
+#tasks, #completed_tasks{
+  margin-left: 0px;
+}
+
+#tasks li, #completed_tasks li {
+  list-style: none;
+}
+
+li.task input[type="checkbox"] {
+  vertical-align: baseline;
+}
+
+#new_task input {
+  width: 554px;
+}

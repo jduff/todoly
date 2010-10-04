@@ -1,0 +1,4 @@
+// remove the task from the complete list
+$('#task_'+<%=@task.id%>).remove();
+// add the task to the todo list
+$('#tasks').append("<%=js render(@task) %>");

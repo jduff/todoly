@@ -26,4 +26,3 @@ $('#tasks').delegate('.cancel_edit_link', 'click', function(){
 
   return false;
 });
-
