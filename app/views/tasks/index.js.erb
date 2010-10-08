@@ -1,0 +1,13 @@
+$('#tasks li, #completed_tasks li').remove();
+
+<% @tasks.each do |task| %>
+  $('#tasks').append("<%=js render(task) %>");
+<% end %>
+
+<% @completed_tasks.each do |task| %>
+  $('#completed_tasks').append("<%=js render(task) %>");
+<% end %>
+
+$('#tags a.tag').removeClass('focused');
+
+$('<%=@focused_tags.collect{|t| "#tag_#{t.hash}"}.join(',')%>').addClass('focused');

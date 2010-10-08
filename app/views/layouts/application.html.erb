@@ -32,37 +32,37 @@
 </head>
 
 <body class="<%=controller_name%> <%=action_name%>">
+  <div id="container-outer">
 
-  <div id="container">
-    <header>
-  <ul id='user-links' class='nav'>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.email, edit_user_registration_path %></li>
-      <li><%= link_to "logout", destroy_user_session_path %></li>
-    <% else %>
-      <li><%= link_to "sign in", new_user_session_path %></li>
-      <li><%= link_to "sign up", new_user_registration_path %></li>
-    <% end %>
-  </ul>
+    <div id="container">
+      <header>
+        <ul id='user-links' class='nav'>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, edit_user_registration_path %></li>
+            <li><%= link_to "logout", destroy_user_session_path %></li>
+          <% else %>
+            <li><%= link_to "sign in", new_user_session_path %></li>
+            <li><%= link_to "sign up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+        <h1>ThreeLists</h1>
+      </header>
 
-    </header>
+      <div id="main-wrapper" class='grouped'>
+        <% if !alert.blank? %>
+          <p class="alert"><%= alert %></p>
+        <% end %>
+        <% if !notice.blank? %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
+        <%= content_for?(:content) ? yield(:content) : yield %>
+      </div>
 
-    <div id="main">
-      <% if !alert.blank? %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-      <% if !notice.blank? %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
+      <footer>
 
-      <%= yield %>
-
-    </div>
-
-    <footer>
-
-    </footer>
-  </div> <!--! end of #container -->
+      </footer>
+    </div> <!--! end of #container -->
+  </div>
 
 
   <!-- Javascript at the bottom for fast page loading -->

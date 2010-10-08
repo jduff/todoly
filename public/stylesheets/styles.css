@@ -44,10 +44,58 @@ header h1 {
   list-style: none;
 }
 
+#completed_tasks li span {
+  text-decoration:line-through;
+}
+
 li.task input[type="checkbox"] {
   vertical-align: baseline;
 }
 
+#tags {
+  margin:0px;
+}
+
+#tags li {
+  list-style:none;
+  display:inline-block;
+}
+
+#tags a {
+  padding:3px;
+}
+
+#tags a.focused {
+  background-color: #444;
+  color: #fff;
+}
+
 #new_task input {
   width: 554px;
+}
+
+form.task.edit {
+  margin 1em 0px;
+}
+
+form.task.edit label {
+  width:auto;
+  padding-right:10px;
+}
+
+form.task.edit input.tag_list{
+  margin-right:20px;
+}
+
+form.task.edit input.task_name {
+  width: 554px;
+}
+
+form.task.edit input.awesome {
+  vertical-align: baseline !important;
+}
+
+.registrations #main-wrapper, .sessions #main-wrapper, .passwords #main-wrapper{
+  width: 435px;
+  margin: auto;
 }

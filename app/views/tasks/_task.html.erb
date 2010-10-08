@@ -1,9 +1,8 @@
 <%= content_tag_for :li, task, :class=>"#{task.status}" do %>
   <%= check_box_tag "#{dom_id(task)}_checkbox", nil, task.complete?, :action=>task.complete? ? uncomplete_task_path(task) : complete_task_path(task), :"data-remote"=>true, :"data-method"=>:put %>
   <span><%= task.name %></span>
-  <% link_to "finished", complete_task_path(task), :method=>:put, :remote=>true unless task.complete? %>
-  <%= link_to "delete", task_path(task), :method=>:delete, :remote=>true, :confirm=>"Are you sure you want to delete this task?" %>
   <%= link_to "edit", "#", :remote=>true, :class=>"edit_task_link" unless task.complete? %>
+  <%= link_to "delete", task_path(task), :method=>:delete, :remote=>true, :confirm=>"Are you sure you want to delete this task?" %>
 
   <%= render(:partial=>'edit_form', :object=>task) unless task.complete? %>
 <% end %>

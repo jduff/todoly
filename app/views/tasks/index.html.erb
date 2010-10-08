@@ -1,12 +1,29 @@
-<%= simple_form_for :task, :remote=>true, :html=>{:id=>"new_task"} do |f| %>
-  <%= f.input :name, :required=>false, :label=>"Add a new task", :input_html=>{:autocomplete=>:off}, :label_html=>{:class=>"inline", :style=>"display:none;"} %>
-  <% f.button :submit, :value=>"Add Task", :class=>"awesome" %>
-<% end %>
+<div id="sidebar">
+  <h2>Your Tags</h2>
 
-<ol id="tasks">
-  <%= render @tasks %>
-</ol>
+  <ul id="tags">
+    <% @tags.each do |tag| %>
+      <li><%= link_to tag.name, tasks_path(:tag=>tag.name), :class=>@focused_tags.include?(tag.name) ? "focused tag" : "tag", :remote=>true, :id=>"tag_#{tag.name.hash}" %></li>
+    <% end %>
+  </ul>
 
-<ul id="completed_tasks">
-  <%= render @completed_tasks %>
-</ul>
+  <p><%= link_to "show all", tasks_path(:tag=>nil), :remote=>true %></p>
+
+</div>
+
+<div id="main">
+
+  <%= simple_form_for :task, :remote=>true, :html=>{:id=>"new_task"} do |f| %>
+    <%= f.input :name, :required=>false, :label=>"Add a new task", :input_html=>{:autocomplete=>:off}, :label_html=>{:class=>"inline", :style=>"display:none;"} %>
+    <% f.button :submit, :value=>"Add Task", :class=>"awesome" %>
+  <% end %>
+
+  <ol id="tasks">
+    <%= render @tasks %>
+  </ol>
+
+  <ul id="completed_tasks">
+    <%= render @completed_tasks %>
+  </ul>
+
+</div>

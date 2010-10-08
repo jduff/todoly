@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :tasks, :foreign_key => "creator_id"
+  has_many :tasks, :foreign_key => "creator_id", :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
