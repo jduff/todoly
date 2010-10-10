@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
-  before_filter :focus_tags, :only => :index
+  before_filter :focus_tags, :only => [:index, :update, :destroy]
 
   def index
     @tasks = current_user.tasks.current
@@ -25,11 +25,17 @@ class TasksController < ApplicationController
   def update
     @task.update_attributes(params[:task])
 
+    # not the most efficient, but gets the job done
+    @tags = current_user.tasks.tag_counts
+
     respond_with @task
   end
 
   def destroy
     @task.destroy
+
+    # not the most efficient, but gets the job done
+    @tags = current_user.tasks.tag_counts
 
     respond_with @task
   end
