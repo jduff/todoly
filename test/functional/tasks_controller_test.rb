@@ -89,9 +89,9 @@ class TasksControllerTest < ActionController::TestCase
 
       task.reload
       assert_equal "More Awesomeness", task.name
-      assert_equal 2, task.tags.length
-      assert task.tags.collect(&:name).include?("awesome")
-      assert task.tags.collect(&:name).include?("sauce")
+      assert_equal 2, task.owner_tags_on(@user, :tags).length
+      assert task.owner_tags_on(@user, :tags).collect(&:name).include?("awesome")
+      assert task.owner_tags_on(@user, :tags).collect(&:name).include?("sauce")
 
       assert_match "$('#task_'+#{task.id}).replace", response.body
       assert_match "More Awesomeness", response.body
