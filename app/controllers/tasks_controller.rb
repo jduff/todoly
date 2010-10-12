@@ -9,24 +9,28 @@ class TasksController < ApplicationController
     # Limit the tasks returned by the tags the user is currently focusing on
     focus_tasks
 
-    @tags = current_user.tasks.tag_counts
+    @tags = current_user.owned_tags
   end
 
   def create
     @task.creator = current_user
-    # set the tag_list to the currently focused tags
-    @task.tag_list = focused_tags.join(',')
 
     @task.save
+
+    # set the tag_list to the currently focused tags
+    current_user.tag(@task, :with=>focused_tags.join(','), :on=>:tags) unless focused_tags.empty?
+
 
     respond_with @task
   end
 
   def update
+    tags = params[:task].delete(:tag_list) if params[:task]
     @task.update_attributes(params[:task])
 
-    # not the most efficient, but gets the job done
-    @tags = current_user.tasks.tag_counts
+    current_user.tag(@task, :with=>tags, :on=>:tags) if tags
+
+    @tags = current_user.owned_tags
 
     respond_with @task
   end
@@ -35,7 +39,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     # not the most efficient, but gets the job done
-    @tags = current_user.tasks.tag_counts
+    @tags = current_user.owned_tags
 
     respond_with @task
   end

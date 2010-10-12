@@ -1,7 +1,9 @@
 <%= simple_form_for edit_form, :remote=>true, :html=>{:style=>"display:none;", :class=>"edit"} do |f| %>
   <%= f.input :name, :label=>false, :input_html=>{:autocomplete=>:off, :class=>"task_name"} %>
   <p>
-  <%= f.input :tag_list, :label=>"Tags", :wrapper_tag=>:span, :input_html=>{:class=>"tag_list"} %>
+    <%= f.label :tag_list, :label=>"Tags" %>
+    <%= text_field_tag "task[tag_list]", edit_form.owner_tag_list_on(current_user, :tags), :class=>"tag_list" %>
+
     <%= f.button :submit, :class=>"awesome" %>
     <%= link_to "cancel", "#", :remote=>true, :class=>"cancel_edit_link" %>
   </p>
