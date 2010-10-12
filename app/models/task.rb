@@ -8,9 +8,9 @@ class Task < ActiveRecord::Base
 
   attr_accessible :name, :tag_list
 
-  scope :status, Proc.new { |s| where(:status=>s) }
+  scope :status, Proc.new { |s| where(:status=>s).order("updated_at DESC") }
   scope :current, Proc.new {
-    where(Task[:status].not_eq('complete').or(Task[:status].eq(nil)))
+    where(Task[:status].not_eq('complete').or(Task[:status].eq(nil))).order("updated_at ASC")
   }
 
   # define status helper methods such as complete? and in_progress?
