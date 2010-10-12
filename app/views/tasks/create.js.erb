@@ -1,5 +1,6 @@
 // add the new task to the list
-$('#tasks').append("<%=js render(@task) %>");
+$('#tasks').append("<%=js render(@task) %>").find('li:last').effect("highlight", {}, 3000);
 // reset the task form
 $('#new_task')[0].reset();
+$('#new_task input#task_name').focus();
 

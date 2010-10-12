@@ -71,6 +71,10 @@
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
   <script>!window.jQuery && document.write('<script src="javascripts/jquery-1.4.2.min.js"><\/script>')</script>
 
+  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js" %>
+  <script>!window.jQuery && document.write('<script src="javascripts/jquery-ui-1.8.5.min.js"><\/script>')</script>
+
 
   <%= javascript_include_tag 'plugins' %>
   <%= javascript_include_tag 'jquery.inline-labels' %>
