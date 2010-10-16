@@ -38,14 +38,14 @@
       <header>
         <ul id='user-links' class='nav'>
           <% if user_signed_in? %>
-            <li><%= link_to current_user.email, edit_user_registration_path %></li>
+            <li><%= link_to current_user.email, edit_user_registration_path %> | </li>
             <li><%= link_to "logout", destroy_user_session_path %></li>
           <% else %>
-            <li><%= link_to "sign in", new_user_session_path %></li>
+            <li><%= link_to "sign in", new_user_session_path %> | </li>
             <li><%= link_to "sign up", new_user_registration_path %></li>
           <% end %>
         </ul>
-        <h1>Todoly</h1>
+        <h1><%= link_to "Todoly", root_url %></h1>
       </header>
 
       <div id="main-wrapper" class='grouped'>

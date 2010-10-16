@@ -3,8 +3,6 @@ class HomeController < ApplicationController
 
   def index
     return redirect_to tasks_path if user_signed_in?
-
-    render :text => 'home', :layout => true
   end
 
 end
