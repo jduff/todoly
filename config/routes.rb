@@ -1,4 +1,4 @@
-Threelists::Application.routes.draw do
+Todoly::Application.routes.draw do
   devise_for :users
 
   resources :tasks do

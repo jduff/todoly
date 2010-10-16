@@ -6,9 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module Threelists
+module Todoly
   class Application < Rails::Application
-  
+
     config.generators do |g|
       g.test_framework :test_unit, :fixture_replacement=>:factory_girl
     end
