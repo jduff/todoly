@@ -406,6 +406,10 @@ select {
   font-size:120%;
 }
 
+input.bool, input[type="checkbox"] {
+  margin-right:10px;
+}
+
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="file"]:focus,

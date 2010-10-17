@@ -5,10 +5,10 @@
   <%= f.input :password, :required=>:false %>
 
   <% if devise_mapping.rememberable? -%>
-    <%= f.check_box :remember_me %>
+    <%= f.input :remember_me, :as=>:boolean %>
   <% end -%>
 
-  <%= f.button :submit, "Sign in" %>
+  <%= f.button :submit, "Sign in", :class=>"awesome" %>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
