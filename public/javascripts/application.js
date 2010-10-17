@@ -26,3 +26,16 @@ $('#tasks').delegate('.cancel_edit_link', 'click', function(){
 
   return false;
 });
+
+$('#tips li').hide().first().show();
+setInterval('rotate()',15000);
+
+function rotate() {
+  var current = $('#tips li:visible');
+
+  var next = current.next().length ? current.next() : $('#tips li:first');
+
+  current.fadeOut(1000, function(){
+    next.fadeIn(1000);
+  });
+}

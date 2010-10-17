@@ -1,5 +1,4 @@
 $('#task_'+<%=@task.id%>).remove();
 
 // update the tags in case we added any
-$('#tags li').remove();
-$('#tags').append("<%=js render(:partial => 'tag') %>");
+$('#tags').replaceWith("<%=js render(:partial => 'tags') %>");

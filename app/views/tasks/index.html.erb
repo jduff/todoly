@@ -1,12 +1,12 @@
 <div id="sidebar">
-  <h2>Your Tags</h2>
 
-  <ul id="tags">
-    <%= render :partial => 'tag' %>
+  <%= render :partial => 'tags' %>
+
+  <br />
+  <ul id="tips">
+    <li class='tip'>* selecting the sidebar tags will focus on tasks with any of those tags.</li>
+    <li class='tip'>* when focused on a tag new tasks will be tagged with whatever is selected.</li>
   </ul>
-
-  <p><%= link_to "show all", tasks_path(:tag=>nil), :remote=>true %></p>
-
 </div>
 
 <div id="main">

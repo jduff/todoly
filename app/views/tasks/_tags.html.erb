@@ -1,0 +1,19 @@
+<div id="tags">
+  <h2>Your Tags</h2>
+
+  <% if @tags.empty? %>
+      <p class='tip'>You haven't tagged any tasks yet!<br />Click edit on a task to add some!</p>
+  <% else %>
+    <ul>
+      <% @tags.each do |tag| %>
+        <li>
+          <%= link_to tag.name, tasks_path(:tag=>tag.name), 
+            :class=>@focused_tags.include?(tag.name) ? "focused tag" : "tag", :remote=>true, :id=>"tag_#{tag.name.hash}" %>
+        </li>
+      <% end %>
+    </ul>
+
+    <p><%= link_to "show all", tasks_path(:tag=>nil), :remote=>true %></p>
+
+  <% end %>
+</div>

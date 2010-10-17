@@ -13,8 +13,9 @@ body {
 }
 
 #sidebar {
-  width: 351px;
+  width: 341px;
   float:left;
+  padding-right: 10px;
 }
 
 #main {
@@ -52,20 +53,20 @@ li.task input[type="checkbox"] {
   vertical-align: baseline;
 }
 
-#tags {
+#tags ul {
   margin:0px;
 }
 
-#tags li {
+#tags ul li {
   list-style:none;
   display:inline-block;
 }
 
-#tags a {
+#tags ul a {
   padding:3px;
 }
 
-#tags a.focused {
+#tags ul a.focused {
   background-color: #444;
   color: #fff;
 }
@@ -93,6 +94,20 @@ form.task.edit input.task_name {
 
 form.task.edit input.awesome {
   vertical-align: baseline !important;
+}
+
+#tips {
+  margin:0px;
+}
+
+#tips li {
+  display:none;
+  list-style:none;
+}
+
+.tip {
+  font-size: 90%;
+  font-style:italic;
 }
 
 .registrations #main-wrapper, .sessions #main-wrapper, .passwords #main-wrapper{
