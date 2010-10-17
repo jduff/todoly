@@ -43,5 +43,16 @@ module Todoly
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => ENV['GMAIL_SMTP_DOMAIN'] || 'todoly.net',
+      :user_name            => ENV['GMAIL_SMTP_USER'] || '',
+      :password             => ENV['GMAIL_SMTP_PASSWORD'] || '',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
+    }
   end
 end
