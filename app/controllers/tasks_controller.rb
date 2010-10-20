@@ -10,6 +10,8 @@ class TasksController < ApplicationController
     focus_tasks
 
     @tags = current_user.owned_tags
+
+    respond_with @tasks
   end
 
   def create

@@ -6,6 +6,28 @@ class TasksControllerTest < ActionController::TestCase
     sign_in @user
   end
 
+  test "must be logged in to view tasks" do
+    sign_out :user
+
+    Factory(:task, :creator=>@user)
+    Factory(:task, :status=>"complete", :creator=>@user)
+    Factory(:task, :status=>"in progress", :creator=>@user)
+
+    get :index
+    assert_response 302
+    assert_redirected_to new_user_session_path
+  end
+
+  test "must be logged in to create a task" do
+    sign_out :user
+
+    assert_no_difference "Task.count" do
+      post :create, :format=>:js, :task=>{:name=>"New Awesome Task"}
+
+      assert_response 401
+    end
+  end
+
   test "should be able to view all tasks on index" do
     Factory(:task, :creator=>@user)
     Factory(:task, :status=>"complete", :creator=>@user)
