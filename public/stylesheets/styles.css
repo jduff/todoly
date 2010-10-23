@@ -114,3 +114,75 @@ form.task.edit input.awesome {
   width: 435px;
   margin: auto;
 }
+
+
+@media screen and (max-width: 1000px) {
+
+  #container-outer, #container {
+    width: 748px;
+  }
+
+  #container {
+    margin:0px auto;
+  }
+
+  #sidebar {
+    width:276px;
+  }
+
+  #main {
+    width:462px;
+  }
+
+  #new_task input, form.task.edit input.task_name, input.string {
+    width: 400px;
+  }
+
+  input.tag_list {
+    width: 180px;
+  }
+
+  form.task.edit label {
+    margin-right:3px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  #container-outer, #container {
+    width: 310px;
+  }
+
+  #sidebar {
+    width:auto;
+    float:none;
+    padding:0px;
+    display:none;
+  }
+
+  #main {
+    width:auto;
+    float:none;
+  }
+
+  #new_task input, form.task.edit input.task_name, input.string {
+    width: 290px;
+  }
+
+  form.task.edit input.tag_list {
+    width: 230px;
+    margin-right:0px;
+  }
+
+  form.task.edit label {
+    margin-right:3px;
+  }
+
+  form.task.edit span {
+    display:block;
+    padding-top:3px;
+    padding-right:4px;
+    text-align:right;
+  }
+}
