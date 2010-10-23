@@ -5,7 +5,7 @@
     <%= text_field_tag "task[tag_list]", edit_form.owner_tag_list_on(current_user, :tags), :class=>"tag_list" %>
 
     <span>
-      <%= f.button :submit, :class=>"awesome", :value=>"Update" %>
+      <%= f.button :submit, "Update", :class=>"awesome" %>
       <%= link_to "cancel", "#", :remote=>true, :class=>"cancel_edit_link" %>
     </span>
   </p>

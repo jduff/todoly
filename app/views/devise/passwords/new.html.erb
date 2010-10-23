@@ -1,10 +1,10 @@
 <h2>Forgot your password?</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.input :email %>
+  <% devise_error_messages! %>
+  <%= f.input :email, :required=>false, :label_html=>{:class=>"inline", :style=>"display:none;"} %>
 
-  <%= f.button :submit, "Send me reset password instructions", :class=>"awesome" %>
+  <%= f.button :submit, "Send me reset instructions", :class=>"awesome" %>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

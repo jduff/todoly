@@ -1,8 +1,8 @@
 <h2>Sign in</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= f.input :email, :as=>:string, :required => false, :label=>"Login or Email" %>
-  <%= f.input :password, :required=>:false %>
+  <%= f.input :email, :as=>:string, :required => false, :label=>"Login or Email", :label_html=>{:class=>"inline", :style=>"display:none;"} %>
+  <%= f.input :password, :required=>false, :label_html=>{:class=>"inline", :style=>"display:none;"} %>
 
   <% if devise_mapping.rememberable? -%>
     <%= f.input :remember_me, :as=>:boolean %>

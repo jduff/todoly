@@ -134,7 +134,7 @@ form.task.edit input.awesome {
     width:462px;
   }
 
-  #new_task input, form.task.edit input.task_name, input.string {
+  #new_task input, form.task.edit input.task_name {
     width: 400px;
   }
 
@@ -149,6 +149,14 @@ form.task.edit input.awesome {
 }
 
 @media screen and (max-width: 480px) {
+
+  h1 {
+    margin-bottom:0px;
+  }
+
+  h2 {
+    margin-top:0px;
+  }
 
   #container-outer, #container {
     width: 310px;
@@ -166,7 +174,7 @@ form.task.edit input.awesome {
     float:none;
   }
 
-  #new_task input, form.task.edit input.task_name, input.string {
+  #new_task input, form.task.edit input.task_name {
     width: 290px;
   }
 
@@ -185,4 +193,14 @@ form.task.edit input.awesome {
     padding-right:4px;
     text-align:right;
   }
+
+  form.user input.string, form.user input.password {
+    display:block;
+    width:290px;
+  }
+
+  .registrations #main-wrapper, .sessions #main-wrapper, .passwords #main-wrapper {
+    width: 300px;
+  }
+
 }
