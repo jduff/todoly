@@ -2,7 +2,7 @@
   <%= f.input :name, :label=>false, :input_html=>{:autocomplete=>:off, :class=>"task_name"} %>
   <p>
     <%= f.label :tag_list, :label=>"Tags" %>
-    <%= text_field_tag "task[tag_list]", edit_form.owner_tag_list_on(current_user, :tags), :class=>"tag_list" %>
+    <%= text_field_tag "task[tag_list]", edit_form.owner_tag_list_on(current_user, :tags).join(", "), :class=>"tag_list" %>
 
     <span>
       <%= f.button :submit, "Update", :class=>"awesome" %>
