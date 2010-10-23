@@ -225,7 +225,8 @@ input[type="button"],
  * note that the last rule does not do anything in IE as this browser does not support "outline" (besides, it treats :active and :focus the same)
  */
 a:link, a:visited {color: #000;}
-a:focus,:focus {outline: 1px dotted #000;}
+:focus {outline: none;}
+a:focus {outline: 1px dotted #000;}
 a:active, input:active, select:active, textarea:active {outline: none;}
 
 /*
