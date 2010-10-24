@@ -34,7 +34,7 @@ gem "factory_girl_rails", :group => :test
 gem "ZenTest", :group => :test
 gem "autotest-rails", :group => :test
 gem "rails3-generators"
-gem "devise", "1.1.2"
+gem "devise", "1.1.3"
 gem "will_paginate", :git => "git://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "cancan"
 gem "simple_form"
