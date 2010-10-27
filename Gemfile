@@ -39,3 +39,4 @@ gem "will_paginate", :git => "git://github.com/mislav/will_paginate.git", :branc
 gem "cancan"
 gem "simple_form"
 gem 'acts-as-taggable-on'
+gem 'backpocket', :git=>'git://github.com/jduff/backpocket.git'
