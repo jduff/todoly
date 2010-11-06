@@ -1,4 +1,12 @@
-<div style='text-align:center; font-size:150%'>
-  <h2><%= link_to "Sign In", new_user_session_path %></h2>
-  <h2><%= link_to "Sign Up", new_user_registration_path %></h2>
+<div class='grouped'>
+  <div id='intro'>
+    <p>Todoly.net is a super simple todo list app to keep track of what you need to get done.</p>
+    <p>Please check it out and <%=link_to "let us know what you think", :action=>:feedback, :controller=>:home%>.</p>
+  </div>
+
+
+  <div id="signInSignUp">
+    <h2><%= link_to "Sign In", new_user_session_path %></h2>
+    <h2><%= link_to "Sign Up", new_user_registration_path %></h2>
+  </div>
 </div>

@@ -5,4 +5,7 @@ class HomeController < ApplicationController
     return redirect_to tasks_path if user_signed_in?
   end
 
+  def feedback
+  end
+
 end

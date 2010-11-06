@@ -115,6 +115,24 @@ form.task.edit input.awesome {
   margin: auto;
 }
 
+#intro{
+  width:50%;
+  float:left;
+  margin-top:2em;
+}
+
+#signInSignUp {
+  text-align:center;
+  font-size:150%;
+  width:50%;
+  float:left;
+}
+
+footer {
+  text-align:right;
+  padding-top:10px;
+}
+
 
 @media screen and (max-width: 1000px) {
 
@@ -156,6 +174,12 @@ form.task.edit input.awesome {
 
   h2 {
     margin-top:0px;
+  }
+
+  #intro, #signInSignUp {
+    float:none;
+    margin:auto;
+    width:99%;
   }
 
   #container-outer, #container {

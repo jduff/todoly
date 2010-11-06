@@ -8,6 +8,8 @@ Todoly::Application.routes.draw do
     end
   end
 
+  match "/feedback", :to=>"home#feedback"
+
   root :to => "home#index"
 
   # The priority is based upon order of creation:
