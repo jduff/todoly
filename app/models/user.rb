@@ -11,10 +11,15 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login, :allow_nil=>true
   validates_format_of :login, :with => /^[^@\s]*$/i, :message => "You can't have @ or spaces in your login" # Logins cannot have @ symbols or spaces
 
+  before_validation do
+    self.email = self.email.downcase if self.email
+    self.login = self.login.downcase if self.login
+  end
+
   acts_as_tagger
 
   def self.find_for_database_authentication(conditions)
     value = conditions[authentication_keys.first]
-    where(["login = :value OR email = :value", { :value => value }]).first
+    where(["login = :value OR email = :value", { :value => value.downcase }]).first
   end
 end
